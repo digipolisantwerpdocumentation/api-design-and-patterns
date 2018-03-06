@@ -4,5 +4,6 @@ Deze documentatie geeft een overzicht van de API design patterns en concepten di
 
 ## Inhoudstafel
 
-[Rate Limiting](patterns/rate-limiting.md)
+[Rate Limiting](patterns/rate-limiting.md)  
+
 Rate limiting beschermt een service tegen overload door het aantal toegelaten requests binnen een tijdspanne te limiteren.
