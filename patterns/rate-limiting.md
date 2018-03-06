@@ -2,7 +2,7 @@
 
 ![rate-limiting-kraan](/img/rate-limiting.jpg)
 
-Rate limiting beschermt een service tegen extreme pieken in het aantal binnenkomende requests. Deze gebeuren meestal met slechte bedoelingen zoals bij denial-of-service attacks of brute-force login pogingen maar kunnen ook te wijten zijn aan een slechte implementatie van communicatie flows. Zo is het niet ondenkbaar dat in bepaalde toepassingen piekmomenten in gebruik zijn zoals bvb bij ticketreservatie systemen. 
+Rate limiting beschermt een service tegen extreme pieken in het aantal binnenkomende requests. Deze gebeuren meestal met slechte bedoelingen zoals bij denial-of-service attacks of brute-force login pogingen maar kunnen ook te wijten zijn aan een slechte implementatie van communicatie flows. Zo is het niet ondenkbaar dat in bepaalde toepassingen piekmomenten in het aantal requests mogelijk zijn zoals bvb bij ticketreservatie systemen. 
 
 
 Van zulke toepassingen wordt verwacht dat ze intelligent om gaan met het versturen van requests naar een API zodat deze niet overbelast wordt. Dit houdt in dat de client software zodanig moet geïmplementeerd worden dat deze de pieken kan opvangen. Dit kan bvb door een queueing mechanisme te voorzien voor het bufferen van de requests naar de API. 
