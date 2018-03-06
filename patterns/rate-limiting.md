@@ -11,4 +11,8 @@ Van zulke toepassingen wordt verwacht dat ze intelligent om gaan met het verstur
 Gebeurt dit niet dan zal bij dreiging van overbelasting de rate limiting van de service geactiveerd worden waardoor elke request die over de limiet gaat, geweigerd wordt. De client zal onmiddellijk een HTTP status code **429 (Too Many Requests)** terug krijgen. Client toepassingen zijn er best op voorzien om deze status code te herkennen en de request later opnieuw te proberen, gecombineerd met een eigen throttling die er voor zorgt dat er minder requests in een korte tijdspanne worden gestuurd. 
 
 
-Zulke rate limiting kan in de service zelf voorzien worden maar wordt in de meeste gevallen opgevangen door een infrastructurele component zoals een _API Gateway_.
+Zulke rate limiting kan in de service zelf voorzien worden maar wordt in de meeste gevallen opgevangen door een infrastructurele component zoals een _API Gateway_. 
+
+Bij commerciële API’s wordt rate limiting ook gebruikt om ervoor te zorgen dat de client applicatie niet boven hun toegelaten (betaalde) quota aan requests gaan.  
+
+
