@@ -366,14 +366,6 @@
     {
       "name": "tenants",
       "description": "Global tenant config. This should be published in the admin REST interface of the API."
-    },
-    {
-      "name": "business",
-      "description": "Demo business endpoint. All calls with this tag are actions inside a tenant"
-    },
-    {
-      "name": "status",
-      "description": "All status related info"
     }
   ]
 }
