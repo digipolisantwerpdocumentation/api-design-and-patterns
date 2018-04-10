@@ -13,6 +13,6 @@ Gebeurt dit niet dan zal bij dreiging van overbelasting de rate limiting van de 
 
 Zulke rate limiting kan in de service zelf voorzien worden maar wordt in de meeste gevallen opgevangen door een infrastructurele component zoals een _API Gateway_. 
 
-Bij commerciële API’s wordt rate limiting ook gebruikt om ervoor te zorgen dat de client applicatie niet boven hun toegelaten (betaalde) quota aan requests gaan.  
+Bij commerciële API’s wordt rate limiting ook gebruikt om ervoor te zorgen dat de client applicaties niet boven hun toegelaten (betaalde) quota aan requests gaan.  
 
 
