@@ -22,10 +22,9 @@ Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarb
 Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘Tenant id’ gebruikt bij het consumeren van een andere component.
 Microservice| ACPaas architectuur is gebaseerd op MSA.
 Tenant id | Unieke identificatie van een tenant  voor een bepaalde component in de HTTP header bij aanroep van een multi-tenant component.
-Vorm: sleutel, waarde paar.
-Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12
-Sleutel:  dgp-tenant-id
-Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
+	* Vorm: sleutel, waarde paar. 
+	* Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12. Sleutel:  dgp-tenant-id
+	* Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 Tenant catalog | De component is zelf voor verantwoordelijk voor persistentie van de tenant id’s, aan provider of consumer kant. De persistentie gebeurd in de zogenaamde tenant catalog.
 Tenant provisioning | De Multi-tenant API voorziet methoden om nieuwe tenant id’s en mapping te provisioneren. 
 
