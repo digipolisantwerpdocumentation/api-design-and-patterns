@@ -59,15 +59,15 @@ Voorzie het opvangen  van de tenant id in elke business service:
 
 Request header: dgp-tenant-id,198b64a5-9a48-4887-9b18-78344946dcc2
 
-Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
+* Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
 
 In het Swagger contract is deze HTTP header verplicht mee te geven, de verantwoordelijkheid ligt bij de consumer component.
 
 * Hoe wordt de hoedanigheid van een gebruiker bepaald? 
 Vb. gebruiker x logt in de FE/BFF met een specifieke hoedanigheid.
 
-verantwoordelijkheid van de FE/BFF component
-tijdens de inlogprocedure definieert de toepassing de hoedanigheid, technisch vertaalt zich dit naar de gdp-tenant-id.
+	1. verantwoordelijkheid van de FE/BFF component
+	2. tijdens de inlogprocedure definieert de toepassing de tenant voor die gebruiker (=hoedanigheid), technisch vertaalt zich dit naar de gdp-tenant-id.
 
 * Wat met gemeenschappelijke data in de databanken?
 Vb. fysiek dupliceren of in een gemeenschappelijk schema, leggen we een restrictie op?
