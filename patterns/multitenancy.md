@@ -20,12 +20,13 @@ Multi-tenancy via twee hoedanigheden : providers en consumers.
 | Multi-tenant |	Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
 | Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘Tenant id’ gebruikt bij het consumeren van een andere component. |
+| Tenant catalog | De component is zelf voor verantwoordelijk voor persistentie van de tenant id’s, aan provider of consumer kant. De persistentie gebeurd in de zogenaamde tenant catalog. |
+| Tenant provisioning | De Multi-tenant API voorziet methoden om nieuwe tenant id’s en mapping te provisioneren. | 
 | Tenant id | Unieke identificatie van een tenant  voor een bepaalde component in de HTTP header bij aanroep van een multi-tenant component.
 	* Vorm: sleutel, waarde paar. 
 	* Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12. Sleutel:  dgp-tenant-id
 	* Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2  |
-| Tenant catalog | De component is zelf voor verantwoordelijk voor persistentie van de tenant id’s, aan provider of consumer kant. De persistentie gebeurd in de zogenaamde tenant catalog. |
-| Tenant provisioning | De Multi-tenant API voorziet methoden om nieuwe tenant id’s en mapping te provisioneren. | 
+
 
 
 ## Assumpties
