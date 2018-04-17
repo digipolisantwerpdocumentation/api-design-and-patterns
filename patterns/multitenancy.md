@@ -38,16 +38,16 @@ De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persist
 * Bij aanvraag van rollen in de UME kan men tenants onderscheiden dmv de organisatie gedeelte op te splitsen per tenant in  het volgende patroon: “G_TPS_Organisatie_Applicatie_NaamvdRol".
 
   * Een fictief voorbeeld met 3 tenants:
-    1. "G_TPS_Tenant1_Applicatie1_NaamvdRol1"
-    1. "G_TPS_Tenant2_Applicatie1_NaamvdRol1"
-    1. "G_TPS_Tenant3_Applicatie1_NaamvdRol1"
+    * "G_TPS_Tenant1_Applicatie1_NaamvdRol1"
+    * "G_TPS_Tenant2_Applicatie1_NaamvdRol1"
+    * "G_TPS_Tenant3_Applicatie1_NaamvdRol1"
 
 ## Multi-tenant API template
 
-#### Hyperlink example met swagger
-[admin api](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
+#### Example met swagger: Business API & Admin API
 
-[business api](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) 
+* [Business API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) 
+* [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
 
 
 #### Hoedanigheid
