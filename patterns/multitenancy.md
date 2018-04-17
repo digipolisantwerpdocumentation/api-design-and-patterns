@@ -46,9 +46,25 @@ De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persist
 
 #### Template met 2 swagger definities: Business API & Admin API
 
-* [Business API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) 
-* [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
+* De [Business API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) voorziet het opvangen van de tenant id in elke business methode*:
 
+| Method | Details |
+| :--- | :--- |
+| GET /tenants/me | Get all dependent created tenants and id |
+| POST /business-parties* | Creates a business party |
+| GET /business-parties* | Get all the parties |
+
+	
+* De [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
+bevat volgende methoden ifv tenant beheer:
+
+| Method | Details |
+| :--- | :--- |
+| POST /tenants | Creates a new tenant |
+| GET /tenants | Get all tenants |
+| GET /tenants/{tenantid} | Get tenant details |
+| DELETE /tenants/{tenantid} | Delete a tenant |
+| PUT /tenants/{tenantid} | Update the tenant details |
 
 #### Hoedanigheid
 
@@ -94,7 +110,7 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 
 #####  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
-De [Business API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) voorziet het opvangen van de tenant id in elke business methode*:
+* De [Business API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) voorziet het opvangen van de tenant id in elke business methode*:
 
 | Method | Details |
 | :--- | :--- |
@@ -103,7 +119,7 @@ De [Business API](https://editor.swagger.io/?url=https://raw.githubusercontent.c
 | GET /business-parties* | Get all the parties |
 
 	
-De [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
+* De [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
 bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
