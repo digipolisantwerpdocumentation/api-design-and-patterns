@@ -16,7 +16,7 @@ Multi-tenancy via twee hoedanigheden : providers en consumers.
 ## Terminologie
 
 | Term | Definitie |
-| --- | --- |
+| :---: | :---: |
 | Multi-tenant |	Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
 | Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘Tenant id’ gebruikt bij het consumeren van een andere component. |
@@ -49,8 +49,9 @@ ACPaaS platform componenten kunnen simultaan volgende hoedanigheden hebben:
 * hoedanigheid als provider: deze is multi-tenant by design; 
 * hoedanigheid als consumer: client van een multi-tenant component.
 
+
 | ACPaas component | Provider rol? Aanleveren multi-tenant API? | Consumer rol? Tenant-aware? |
-| --- | --- | --- |
+| :---: | :---: | :---: |
 | Engines | Ja, engine is multi-tenant by design. | Optioneel, wel indien afnemer van een ander multi-tenant component. |
 | Halffabrikaten | Optioneel, wenselijk. | Verplicht. |
 | Business services  | Optioneel, wenselijk. | Verplicht. |
