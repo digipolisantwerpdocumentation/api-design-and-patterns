@@ -90,16 +90,16 @@ Documentatie voor een MTA/MTP is noodzakelijk.
 
 #####  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
-Voorzie het opvangen van de tenant id in elke business service: 
+* De Business Api voorziet het opvangen van de tenant id in elke business methode*.
 
 | Method | Details |
 | :---: | :---: |
 | GET /tenants/me | Get all dependent created tenants and id |
-| POST /business-parties | Creates a business party |
-| GET /business-parties | get all the parties |
+| POST /business-parties* | Creates a business party |
+| GET /business-parties* | get all the parties |
 
 	
-Voorzie in een admin API volgende methoden:
+* De Admin API bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
 | :---: | :---: |
@@ -115,10 +115,10 @@ Voorzie in een admin API volgende methoden:
 In het Swagger contract is deze HTTP header verplicht mee te geven, de verantwoordelijkheid ligt bij de consumer component.
 
 ##### Hoe wordt de hoedanigheid van een gebruiker bepaald? 
-Vb. gebruiker x logt in de FE/BFF met een specifieke hoedanigheid.
 
-	* verantwoordelijkheid van de FE/BFF component
-	* tijdens de inlogprocedure definieert de toepassing de tenant voor die gebruiker (=hoedanigheid), technisch vertaalt zich dit naar de gdp-tenant-id.
+* Indien de applicatie meerdere tenants voorziet: de gebruiker start een sessie met één specifieke hoedanigheid.
+* Het is de verantwoordelijkheid van de FE/BFF component om de keuzelijst aan te bieden tijdens de inlogprocedure.
+* Op basis van de keuze van de gebruiker kan de toepassing de tenant bepalen en gebruiken om de correcte databank aan te spreken etc. 
 
 ##### Wat met gemeenschappelijke data in de databanken?
 Vb. fysiek dupliceren of in een gemeenschappelijk schema, leggen we een restrictie op?
