@@ -73,9 +73,10 @@ Decentraal : de unieke tenant id’s worden aangemaakt en bewaard door de provid
 
 Vorm: sleutel, waarde paar.
 Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12
-
+```
 Sleutel:  dgp-tenant-id
 Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
+```
 
 
 ## FAQ
@@ -134,12 +135,12 @@ Neen, de unieke tenant id’s worden bewaard door de provider component zelf, ni
 
 We werken met een unieke connectie string per tenant:
 
-Eén instantie:
+* Eén instantie:
 PostgreSQL: jdbc:postgresql://localhost:5432/mydatabase?currentSchema=myschema
 MongoDB: cfr. https://docs.mongodb.com/manual/reference/connection-string/
 mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
-Meerdere instanties:
+* Meerdere instanties:
 PostgreSQL: per instantie een specifieke connectie string
 MongoDB: per instantie een specifieke connectie string
 
