@@ -33,7 +33,14 @@ Meer specifiek: elke toekomstige engine is multi-tenant (cfr. offerte), maw elke
 * Er is geen centraal tenant beheersysteem.
 De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persistentie. In de praktijk 1 of meerdere tenants. Elke tenant heeft  een uniek tenant id. 
 
-* Een eindgebruiker kan in theorie 1 of meerdere hoedanigheden hebben, per toepassing of over de toepassingen heen. Dit impliceert dat een gebruiker gekoppeld aan een applicatie, maar ook dat de rollen en rechten tenant specifiek te configureren zijn (vb. In UME).
+* Een eindgebruiker kan in theorie 1 of meerdere hoedanigheden hebben, per toepassing of over de toepassingen heen. Dit impliceert dat een gebruiker is gekoppeld aan een applicatie, maar ook dat de rollen en rechten tenant specifiek te configureren zijn.
+
+* Bij aanvraag van rollen in de UME kan men tenants onderscheiden dmv de organisatie gedeelte op te splitsen per tenant in  het volgende patroon: “G_TPS_Organisatie_Applicatie_NaamvdRol".
+
+Een fictief voorbeeld met 3 tenants:
+    "G_TPS_Tenant1_Applicatie1_NaamvdRol1"
+    "G_TPS_Tenant2_Applicatie1_NaamvdRol1"
+    "G_TPS_Tenant3_Applicatie1_NaamvdRol1"
 
 ## Multi-tenant API template
 
@@ -119,9 +126,9 @@ Een component kan intern gebruik maken van een data die niet tenant specifiek is
 Dit is interne keuken van de component en staat los van de Multi-tenant API.
 
 ##### Is er een centrale infrastructuur component die de tenant id’s beheert?
-Vb. via API Gateway,  AppConfig,  satelliet
 
-Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. Dit kan bijvoorbeeld in een tabel in de ''tenant catalog' databank.
+
+Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. Dit kan bijvoorbeeld in een tabel in de 'tenant catalog' databank.
 
 ##### Ivm persistentie: hoe maken we een onderscheid tussen de tenant specifiek databronnen?
 
