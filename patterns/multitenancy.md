@@ -23,10 +23,6 @@ Multi-tenancy via twee hoedanigheden : providers en consumers.
 | Tenant catalog | De component is zelf voor verantwoordelijk voor persistentie van de tenant id’s, aan provider of consumer kant. De persistentie gebeurd in de zogenaamde tenant catalog. |
 | Tenant provisioning | De Multi-tenant API voorziet methoden om nieuwe tenant id’s en mapping te provisioneren. | 
 | Tenant id | Unieke identificatie van een tenant  voor een bepaalde component in de HTTP header bij aanroep van een multi-tenant component.
-	* Vorm: sleutel, waarde paar. 
-	* Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12. Sleutel:  dgp-tenant-id
-	* Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2  |
-
 
 
 ## Assumpties
@@ -47,6 +43,18 @@ De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persist
 [business api](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) 
 
 
+## Tenant id
+De tenant id is een unieke identificatie van een tenant  voor een bepaalde component in de HTTP header bij aanroep van een multi-tenant component.
+
+Decentraal : de unieke tenant id’s worden aangemaakt en bewaard door de provider component zelf, dus niet via een centrale entiteit. Dit kan bijvoorbeeld in een gedeelde tabel in de ‘tenant catalog’ databank.
+
+Vorm: sleutel, waarde paar.
+Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12
+
+Sleutel:  dgp-tenant-id
+Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
+
+
 ## FAQ
 
 *  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
@@ -58,21 +66,22 @@ Documentatie voor een MTA/MTP is noodzakelijk.
 
 *  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
-Voorzie een admin service met volgende methoden:
+Voorzie in een admin API volgende methoden:
 
-GET /tenants: oplijsten van alle tenants voor component.
+	* GET /tenants: oplijsten van alle tenants voor component.
 
-POST /tenants: aanmaken van een nieuwe tenant en specifieke dependencies, mogelijks is er een goedkeuringsproces nodig.
+	* POST /tenants: aanmaken van een nieuwe tenant en specifieke dependencies, mogelijks is er een goedkeuringsproces nodig.
 
-DELETE /tenants/{tenantId} : verwijderen van de tenant (by default een soft delete, tenzij parameter ‘isHard’ aan staat).
+	* DELETE /tenants/{tenantId} : verwijderen van de tenant (by default een soft delete, tenzij parameter ‘isHard’ aan staat).
 
-GET  /tenants/{tenantId} : geeft tenant details terug
+	* GET  /tenants/{tenantId} : geeft tenant details terug
 
-PUT  /tenants/{tenantId} : updates de tenant details
+	* PUT  /tenants/{tenantId} : updates de tenant details
     
-Voorzie het opvangen  van de tenant id in elke business service: 
+Voorzie het opvangen van de tenant id in elke business service: 
+Voorzie het opvangen van de tenant id in elke business service: 
 
-Request header: dgp-tenant-id,198b64a5-9a48-4887-9b18-78344946dcc2
+	* Request header: dgp-tenant-id,198b64a5-9a48-4887-9b18-78344946dcc2
 
 * Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
 
@@ -93,7 +102,7 @@ Dit is interne keuken van de component en staat los van de Multi-tenant API.
 * Is er een centrale infrastructuur component die de tenant id’s beheert?
 Vb. via API Gateway,  AppConfig,  satelliet
 
-Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. Dit kan bijvoorbeeld in een gedeelde tabel in de databank.
+Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. Dit kan bijvoorbeeld in een tabel in de ''tenant catalog' databank.
 
 * Ivm persistentie: hoe maken we een onderscheid tussen de tenant specifiek databronnen?
 
