@@ -73,14 +73,14 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 
 ## FAQ
 
-*  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
+#####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
 
 De partij die de component oplevert is verantwoordelijk.
 Een provider component implementeert de ‘Multi-tenant API’. De implementatie kan een volledig-  dan wel semi-automatisch proces zijn.
 Een consumer component geeft identificeert expliciet de tenant id tijdens API calls. 
 Documentatie voor een MTA/MTP is noodzakelijk.
 
-*  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
+#####  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
 Voorzie het opvangen van de tenant id in elke business service: 
 
@@ -102,28 +102,28 @@ Voorzie in een admin API volgende methoden:
 | PUT /tenants/{tenantid} | Update the tenant details |
     
 
-* Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
+##### Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
 
 In het Swagger contract is deze HTTP header verplicht mee te geven, de verantwoordelijkheid ligt bij de consumer component.
 
-* Hoe wordt de hoedanigheid van een gebruiker bepaald? 
+##### Hoe wordt de hoedanigheid van een gebruiker bepaald? 
 Vb. gebruiker x logt in de FE/BFF met een specifieke hoedanigheid.
 
 	* verantwoordelijkheid van de FE/BFF component
 	* tijdens de inlogprocedure definieert de toepassing de tenant voor die gebruiker (=hoedanigheid), technisch vertaalt zich dit naar de gdp-tenant-id.
 
-* Wat met gemeenschappelijke data in de databanken?
+##### Wat met gemeenschappelijke data in de databanken?
 Vb. fysiek dupliceren of in een gemeenschappelijk schema, leggen we een restrictie op?
 
 Een component kan intern gebruik maken van een data die niet tenant specifiek is
 Dit is interne keuken van de component en staat los van de Multi-tenant API.
 
-* Is er een centrale infrastructuur component die de tenant id’s beheert?
+##### Is er een centrale infrastructuur component die de tenant id’s beheert?
 Vb. via API Gateway,  AppConfig,  satelliet
 
 Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. Dit kan bijvoorbeeld in een tabel in de ''tenant catalog' databank.
 
-* Ivm persistentie: hoe maken we een onderscheid tussen de tenant specifiek databronnen?
+##### Ivm persistentie: hoe maken we een onderscheid tussen de tenant specifiek databronnen?
 
 We werken met een unieke connectie string per tenant:
 
@@ -136,7 +136,7 @@ Meerdere instanties:
 PostgreSQL: per instantie een specifieke connectie string
 MongoDB: per instantie een specifieke connectie string
 
-* Mag de tenant id als extra kolom gepersisteerd worden?
+##### Mag de tenant id als extra kolom gepersisteerd worden?
 
 We maken GEEN gebruik van een extra kolom met daarin een (indirecte) verwijzing naar de tenant id.
 
