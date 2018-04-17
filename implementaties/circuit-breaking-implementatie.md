@@ -9,7 +9,7 @@ Bij normale werking staat de circuit breaker in de **gesloten** stand. Alle requ
   
 ![circuit-breaker](/img/circuit-breaker-1.png)  
   
-De circuit breaker registreert de communicatiefouten naar de service. Wanneer een vooraf bepaald threshold van aantal mislukte communicaties binnen een tijdspanne bereikt is, zet de circuit breaker zichzelf in **open** stand waardoor er geen requests meer worden uitgestuurd naar de service. In plaats van onnodig resources te gebruiken of  te wachten op timeouts wordt er direct een foutcode terug gegeven.  
+De circuit breaker registreert de communicatiefouten naar de service. Wanneer een vooraf bepaalde threshold van aantal mislukte communicaties binnen een tijdspanne bereikt is, zet de circuit breaker zichzelf in **open** stand waardoor er geen requests meer worden uitgestuurd naar de service. In plaats van onnodig resources te gebruiken of  te wachten op timeouts wordt er direct een foutcode terug gegeven.  
 Na een tijdje wordt de circuit breaker in **half-open** stand gezet waarbij hij een minimum van requests zal doorlaten terwijl voor het gros van de requests nog altijd direct een foutcode wordt terug gegeven. Als blijkt dat de enkele doorgelaten requests lukken en de service dus opnieuw in een goede staat is, wordt de circuit breaker **gesloten** en kunnen alle requests opnieuw doorgelaten worden. Lukken deze nog altijd niet voldoende, dan wordt de circuit breaker opnieuw in stand **open** gezet en wordt de cyclus herhaald.  
   
 Afhankelijk van de noden kunnen verschillende thresholds ingesteld worden voor verschillende soorten communicatiefouten (bv time-outs tov connection refused).  

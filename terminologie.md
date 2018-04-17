@@ -1,2 +1,4 @@
+| Term     | Uitleg                                                                                                                                             |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | API      | Een programma interface bestaande uit 1 of meerdere endpoints die een request-response gebaseerde communicatie aanbieden naar een functionaliteit. |
 | Endpoint | 1 vd 2 kanten van een communicatie, meestal gedefinieerd door een URL.                                                                             |
