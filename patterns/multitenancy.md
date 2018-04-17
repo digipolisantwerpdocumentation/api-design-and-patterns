@@ -17,7 +17,7 @@ Multi-tenancy via twee hoedanigheden : providers en consumers.
 
 | Term | Definitie |
 | :---: | :---: |
-| Multi-tenant |	Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
+| Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
 | Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘Tenant id’ gebruikt bij het consumeren van een andere component. |
 | Tenant catalog | De component is zelf voor verantwoordelijk voor persistentie van de tenant id’s, aan provider of consumer kant. De persistentie gebeurd in de zogenaamde tenant catalog. |
@@ -37,13 +37,13 @@ De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persist
 
 ## Multi-tenant API template
 
-### Hyperlink example met swagger
+#### Hyperlink example met swagger
 [admin api](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
 
 [business api](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) 
 
 
-## Hoedanigheid
+#### Hoedanigheid
 
 ACPaaS platform componenten kunnen simultaan volgende hoedanigheden hebben: 
 * hoedanigheid als provider: deze is multi-tenant by design; 
@@ -53,12 +53,12 @@ ACPaaS platform componenten kunnen simultaan volgende hoedanigheden hebben:
 | ACPaas component | Provider rol? Aanleveren multi-tenant API? | Consumer rol? Tenant-aware? |
 | :---: | :---: | :---: |
 | Engines | Ja, engine is multi-tenant by design. | Optioneel, wel indien afnemer van een ander multi-tenant component. |
-| Halffabrikaten | Optioneel, wenselijk. | Verplicht. |
+| Engine cluster | Optioneel, wenselijk. | Verplicht. |
 | Business services  | Optioneel, wenselijk. | Verplicht. |
 | FE & BFF | Nvt. | Verplicht. |
 
 
-## Tenant id
+#### Tenant id
 
 De tenant id is een unieke identificatie van een tenant  voor een bepaalde component in de HTTP header bij aanroep van een multi-tenant component.
 
@@ -82,22 +82,25 @@ Documentatie voor een MTA/MTP is noodzakelijk.
 
 *  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
+Voorzie het opvangen van de tenant id in elke business service: 
+
+| Method | Details |
+| :---: | :---: |
+| GET /tenants/me | Get all dependent created tenants and id |
+| POST /business-parties | Creates a business party |
+| GET /business-parties | get all the parties |
+
+	
 Voorzie in een admin API volgende methoden:
 
-	* GET /tenants: oplijsten van alle tenants voor component.
-
-	* POST /tenants: aanmaken van een nieuwe tenant en specifieke dependencies, mogelijks is er een goedkeuringsproces nodig.
-
-	* DELETE /tenants/{tenantId} : verwijderen van de tenant (by default een soft delete, tenzij parameter ‘isHard’ aan staat).
-
-	* GET  /tenants/{tenantId} : geeft tenant details terug
-
-	* PUT  /tenants/{tenantId} : updates de tenant details
+| Method | Details |
+| :---: | :---: |
+| POST /tenants | Creates a new tenant |
+| GET /tenants | Get all tenants |
+| GET /tenants/{tenantid} | Get tenant details |
+| DELETE /tenants/{tenantid} | Delete a tenant |
+| PUT /tenants/{tenantid} | Update the tenant details |
     
-Voorzie het opvangen van de tenant id in elke business service: 
-Voorzie het opvangen van de tenant id in elke business service: 
-
-	* Request header: dgp-tenant-id,198b64a5-9a48-4887-9b18-78344946dcc2
 
 * Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
 
