@@ -52,7 +52,7 @@ De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persist
 
 #### Hoedanigheid
 
-ACPaaS platform componenten kunnen simultaan volgende hoedanigheden hebben: 
+Componenten kunnen simultaan volgende hoedanigheden hebben: 
 * hoedanigheid als provider: deze is multi-tenant by design; 
 * hoedanigheid als consumer: client van een multi-tenant component.
 
@@ -88,22 +88,23 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 #####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
 
 * De partij die de component oplevert is verantwoordelijk.
-* Een provider component implementeert de ‘Multi-tenant API’. De implementatie kan een volledig-  dan wel semi-automatisch proces zijn.
-* Een consumer component geeft identificeert expliciet de tenant id tijdens API calls. 
+* Een provider component implementeert de ‘Multi-tenant API’. Het tenant beheer kan als een volledig- dan wel semi-automatisch proces geimplementeerd worden.
+* Een consumer component identificeert expliciet de tenant id tijdens API calls. 
 * Documentatie voor een MTA/MTP is noodzakelijk.
 
 #####  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
-* De Business Api voorziet het opvangen van de tenant id in elke business methode*:
+De Business Api (https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) voorziet het opvangen van de tenant id in elke business methode*:
 
 | Method | Details |
 | :--- | :--- |
 | GET /tenants/me | Get all dependent created tenants and id |
 | POST /business-parties* | Creates a business party |
-| GET /business-parties* | get all the parties |
+| GET /business-parties* | Get all the parties |
 
 	
-* De Admin API bevat volgende methoden ifv tenant beheer:
+De Admin API (https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
+bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
 | :--- | :--- |
@@ -113,16 +114,16 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 | DELETE /tenants/{tenantid} | Delete a tenant |
 | PUT /tenants/{tenantid} | Update the tenant details |
     
-
 ##### Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
 
-In het Swagger contract is deze HTTP header verplicht mee te geven, de verantwoordelijkheid ligt bij de consumer component.
+In het Swagger contract is deze HTTP header verplicht mee te geven, de verantwoordelijkheid ligt bij de consumer component, deze dient de correcte tenant-id mee te geven.
 
-##### Hoe wordt de hoedanigheid van een gebruiker bepaald? 
+##### Hoe wordt de tenant van een gebruiker bepaald? Eenzelfde gebruiker kan immers toegang hebben tot meerdere tenants voor eenzelfde applicatie.
 
-* Indien de applicatie meerdere tenants voorziet: de gebruiker start een sessie met één specifieke hoedanigheid.
-* Het is de verantwoordelijkheid van de FE/BFF component om de keuzelijst aan te bieden tijdens de inlogprocedure.
-* Op basis van de keuze van de gebruiker kan de toepassing de tenant bepalen en gebruiken om de correcte databank aan te spreken etc. 
+* Indien de applicatie meerdere tenants voorziet: het is de verantwoordelijkheid van de FE/BFF component om de keuzelijst aan te bieden tijdens de inlogprocedure.
+* De component kan op basis van de UME rollen/permissies de verschillende tenants van een geauthenticeerde gebruiker bepalen.
+* De gebruiker maakt een keuze en start feitelijk een sessie met voor één specifieke tenant.
+* De toepassing linkt de gebruiker dus aan specifieke tenant om vb. de correcte databank aan te spreken. 
 
 ##### Wat met gemeenschappelijke data in de databanken?
 Vb. fysiek dupliceren of in een gemeenschappelijk schema, leggen we een restrictie op?
