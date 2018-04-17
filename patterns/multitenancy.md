@@ -16,19 +16,19 @@ Multi-tenancy via twee hoedanigheden : providers en consumers.
 ## Terminologie
 
 | Term | Definitie |
-| :---: | :---: |
+| ---: | ---: |
 | Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
-| Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘Tenant id’ gebruikt bij het consumeren van een andere component. |
-| Tenant catalog | De component is zelf voor verantwoordelijk voor persistentie van de tenant id’s, aan provider of consumer kant. De persistentie gebeurd in de zogenaamde tenant catalog. |
-| Tenant provisioning | De Multi-tenant API voorziet methoden om nieuwe tenant id’s en mapping te provisioneren. | 
-| Tenant id | Unieke identificatie van een tenant  voor een bepaalde component in de HTTP header bij aanroep van een multi-tenant component.
+| Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van een andere component. |
+| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor persistentie van de tenant id’s, dit geldt voor de provider of consumer kant, of beide. De persistentie gebeurd in de zogenaamde tenant catalog. |
+| Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
+| Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component.
 
 
 ## Assumpties
 
 * Elke (nieuwe) (ACPaaS) component wordt verwacht rekening te houden met multi-tenancy, hetzij in de hoedanigheid van provider of als consumer. 
-Meer specifiek: elke toekomstige engine is multi-tenant (cfr. offerte), maw elke nieuwe engine is een provider.
+Meer specifiek: elke toekomstige engine is multi-tenant (cfr. offerte vraag), maw elke nieuwe engine is een provider.
 
 * Er is geen centraal tenant beheersysteem.
 De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persistentie. In de praktijk 1 of meerdere tenants. Elke tenant heeft  een uniek tenant id. 
@@ -58,7 +58,7 @@ ACPaaS platform componenten kunnen simultaan volgende hoedanigheden hebben:
 
 
 | ACPaas component | Provider rol? Aanleveren multi-tenant API? | Consumer rol? Tenant-aware? |
-| :---: | :---: | :---: |
+| ---: | ---: | ---: |
 | Engines | Ja, engine is multi-tenant by design. | Optioneel, wel indien afnemer van een ander multi-tenant component. |
 | Engine cluster | Optioneel, wenselijk. | Verplicht. |
 | Business services  | Optioneel, wenselijk. | Verplicht. |
@@ -67,12 +67,16 @@ ACPaaS platform componenten kunnen simultaan volgende hoedanigheden hebben:
 
 #### Tenant id
 
-De tenant id is een unieke identificatie van een tenant  voor een bepaalde component in de HTTP header bij aanroep van een multi-tenant component.
+* De tenant id is een unieke identificatie van een tenant binnen een component.
 
-Decentraal : de unieke tenant id’s worden aangemaakt en bewaard door de provider component zelf, dus niet via een centrale entiteit. Dit kan bijvoorbeeld in een gedeelde tabel in de ‘tenant catalog’ databank.
+* Bij aanroep van een bedrijfsmethode geeft de consumer component de tenant id mee in de HTTP header.  Deze tenant id moet gekend zijn in de tenant provider die wordt aangeroepen.
 
-Vorm: sleutel, waarde paar.
-Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12
+* Decentraal : de unieke tenant id’s worden aangemaakt en bewaard door de provider component zelf, dus niet via een centrale entiteit. Dit kan bijvoorbeeld in een gedeelde tabel in de ‘tenant catalog’ databank van de component.
+
+* Vorm: sleutel, waarde paar.
+
+* Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12
+
 ```
 Sleutel:  dgp-tenant-id
 Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
@@ -83,17 +87,17 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 
 #####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
 
-De partij die de component oplevert is verantwoordelijk.
-Een provider component implementeert de ‘Multi-tenant API’. De implementatie kan een volledig-  dan wel semi-automatisch proces zijn.
-Een consumer component geeft identificeert expliciet de tenant id tijdens API calls. 
-Documentatie voor een MTA/MTP is noodzakelijk.
+* De partij die de component oplevert is verantwoordelijk.
+* Een provider component implementeert de ‘Multi-tenant API’. De implementatie kan een volledig-  dan wel semi-automatisch proces zijn.
+* Een consumer component geeft identificeert expliciet de tenant id tijdens API calls. 
+* Documentatie voor een MTA/MTP is noodzakelijk.
 
 #####  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
-* De Business Api voorziet het opvangen van de tenant id in elke business methode*.
+* De Business Api voorziet het opvangen van de tenant id in elke business methode*:
 
 | Method | Details |
-| :---: | :---: |
+| ---: | ---: |
 | GET /tenants/me | Get all dependent created tenants and id |
 | POST /business-parties* | Creates a business party |
 | GET /business-parties* | get all the parties |
@@ -102,7 +106,7 @@ Documentatie voor een MTA/MTP is noodzakelijk.
 * De Admin API bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
-| :---: | :---: |
+| ---: | ---: |
 | POST /tenants | Creates a new tenant |
 | GET /tenants | Get all tenants |
 | GET /tenants/{tenantid} | Get tenant details |
