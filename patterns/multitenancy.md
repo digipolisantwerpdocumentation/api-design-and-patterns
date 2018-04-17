@@ -16,7 +16,7 @@ Multi-tenancy via twee hoedanigheden : providers en consumers.
 ## Terminologie
 
 | Term | Definitie |
-| ---: | ---: |
+| :--- | :--- |
 | Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
 | Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van een andere component. |
@@ -58,7 +58,7 @@ ACPaaS platform componenten kunnen simultaan volgende hoedanigheden hebben:
 
 
 | ACPaas component | Provider rol? Aanleveren multi-tenant API? | Consumer rol? Tenant-aware? |
-| ---: | ---: | ---: |
+| :--- | :--- | :--- |
 | Engines | Ja, engine is multi-tenant by design. | Optioneel, wel indien afnemer van een ander multi-tenant component. |
 | Engine cluster | Optioneel, wenselijk. | Verplicht. |
 | Business services  | Optioneel, wenselijk. | Verplicht. |
@@ -97,7 +97,7 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 * De Business Api voorziet het opvangen van de tenant id in elke business methode*:
 
 | Method | Details |
-| ---: | ---: |
+| :--- | :--- |
 | GET /tenants/me | Get all dependent created tenants and id |
 | POST /business-parties* | Creates a business party |
 | GET /business-parties* | get all the parties |
@@ -106,7 +106,7 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 * De Admin API bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
-| ---: | ---: |
+| :--- | :--- |
 | POST /tenants | Creates a new tenant |
 | GET /tenants | Get all tenants |
 | GET /tenants/{tenantid} | Get tenant details |
