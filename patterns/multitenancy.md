@@ -39,9 +39,14 @@ De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persist
 
   * Een fictief voorbeeld met 3 tenants:
   
-    * G_TPS_Tenant1_Applicatie1_NaamvdRol1
-    * G_TPS_Tenant2_Applicatie1_NaamvdRol1
-    * G_TPS_Tenant3_Applicatie1_NaamvdRol1
+  * G_TPS_Tenant1_Applicatie1_NaamvdRol1
+  * G_TPS_Tenant2_Applicatie1_NaamvdRol1
+  * G_TPS_Tenant3_Applicatie1_NaamvdRol1
+  
+  * Een fictief voorbeeld met 3 tenants:
+  1. One
+  2. Two
+  3. Three
 
 ## Multi-tenant API template
 
