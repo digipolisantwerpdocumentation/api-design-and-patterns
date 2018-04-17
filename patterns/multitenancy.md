@@ -43,7 +43,22 @@ De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persist
 [business api](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) 
 
 
+## Hoedanigheid
+
+ACPaaS platform componenten kunnen simultaan volgende hoedanigheden hebben: 
+* hoedanigheid als provider: deze is multi-tenant by design; 
+* hoedanigheid als consumer: client van een multi-tenant component.
+
+| ACPaas component | Provider rol? Aanleveren multi-tenant API? | Consumer rol? Tenant-aware? |
+| --- | --- | --- |
+| Engines | Ja, engine is multi-tenant by design. | Optioneel, wel indien afnemer van een ander multi-tenant component. |
+| Halffabrikaten | Optioneel, wenselijk. | Verplicht. |
+| Business services  | Optioneel, wenselijk. | Verplicht. |
+| FE & BFF | Nvt. | Verplicht. |
+
+
 ## Tenant id
+
 De tenant id is een unieke identificatie van een tenant  voor een bepaalde component in de HTTP header bij aanroep van een multi-tenant component.
 
 Decentraal : de unieke tenant id’s worden aangemaakt en bewaard door de provider component zelf, dus niet via een centrale entiteit. Dit kan bijvoorbeeld in een gedeelde tabel in de ‘tenant catalog’ databank.
