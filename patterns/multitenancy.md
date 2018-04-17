@@ -36,17 +36,11 @@ De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persist
 * Een eindgebruiker kan in theorie 1 of meerdere hoedanigheden hebben, per toepassing of over de toepassingen heen. Dit impliceert dat een gebruiker is gekoppeld aan een applicatie, maar ook dat de rollen en rechten tenant specifiek te configureren zijn.
 
 * Bij aanvraag van rollen in de UME kan men tenants onderscheiden dmv de organisatie gedeelte op te splitsen per tenant in  het volgende patroon: “G_TPS_Organisatie_Applicatie_NaamvdRol".
-
+ 
   * Een fictief voorbeeld met 3 tenants:
-  
-  * G_TPS_Tenant1_Applicatie1_NaamvdRol1
-  * G_TPS_Tenant2_Applicatie1_NaamvdRol1
-  * G_TPS_Tenant3_Applicatie1_NaamvdRol1
-  
-  * Een fictief voorbeeld met 3 tenants:
-  1. One
-  2. Two
-  3. Three
+  1. G_TPS_Tenant1_Applicatie1_NaamvdRol1
+  2. G_TPS_Tenant2_Applicatie1_NaamvdRol1
+  3. G_TPS_Tenant3_Applicatie1_NaamvdRol1
 
 ## Multi-tenant API template
 
