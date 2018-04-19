@@ -166,13 +166,12 @@ Ter illustratie:
 We werken met een unieke connectie string per tenant:
 
 * Eén instantie:
-PostgreSQL: jdbc:postgresql://localhost:5432/mydatabase?currentSchema=myschema
-MongoDB: cfr. https://docs.mongodb.com/manual/reference/connection-string/
-mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+  - PostgreSQL: jdbc:postgresql://localhost:5432/mydatabase?currentSchema=myschema
+  - MongoDB: cfr. https://docs.mongodb.com/manual/reference/connection-string/mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
 * Meerdere instanties:
-PostgreSQL: per instantie een specifieke connectie string
-MongoDB: per instantie een specifieke connectie string
+  - PostgreSQL: per instantie een specifieke connectie string
+  - MongoDB: per instantie een specifieke connectie string
 
 ##### Mag de tenant id als extra kolom gepersisteerd worden?
 
