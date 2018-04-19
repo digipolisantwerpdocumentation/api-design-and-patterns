@@ -151,7 +151,7 @@ Dit is interne keuken van de component en staat los van de Multi-tenant API.
 
 
 Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. 
-vb. via een adminstratieve tabel in het 'tenant catalog' gedeelte van de component.
+vb. via persitentie in een adminstratieve tabel in de tenant catalog van de component.
 
 ##### Ivm persistentie: hoe maken we een onderscheid tussen de tenant specifiek databronnen?
 
