@@ -20,7 +20,7 @@ Multi-tenancy via twee hoedanigheden : providers en consumers.
 | Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
 | Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van een andere component. |
-| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor persistentie van de tenant id’s, dit geldt voor de provider of consumer kant, of beide. De persistentie gebeurd in de zogenaamde tenant catalog. |
+| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor persistentie van de tenant id’s, dit geldt voor de provider of consumer kant, of beide. De persistentie gebeurd in de zogenaamde 'tenant catalog'. |
 | Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
 | Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component.
 
@@ -91,7 +91,7 @@ Componenten kunnen simultaan volgende hoedanigheden hebben:
 
 * Vorm: sleutel, waarde paar.
 
-* Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12
+* Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12 (cfr. https://tools.ietf.org/html/rfc4122) 
 
 ```
 Sleutel:  dgp-tenant-id
@@ -150,7 +150,8 @@ Dit is interne keuken van de component en staat los van de Multi-tenant API.
 ##### Is er een centrale infrastructuur component die de tenant id’s beheert?
 
 
-Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. Dit kan bijvoorbeeld in een tabel in de 'tenant catalog' databank.
+Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. 
+vb. via een adminstratieve tabel in het 'tenant catalog' gedeelte van de component.
 
 ##### Ivm persistentie: hoe maken we een onderscheid tussen de tenant specifiek databronnen?
 
