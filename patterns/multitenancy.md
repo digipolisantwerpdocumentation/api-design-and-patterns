@@ -149,9 +149,15 @@ Dit is interne keuken van de component en staat los van de Multi-tenant API.
 
 ##### Is er een centrale infrastructuur component die de tenant id’s beheert?
 
-
 Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. 
 vb. via persitentie in een adminstratieve tabel in de tenant catalog van de component.
+
+##### Wat is de tenant catalog?
+
+Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component en heeft ook zijn eigen databank(schema).
+
+![multitenancy_tenant_catalog](/img/multitenancy_tenant_catalog_20180313.jpg)
+
 
 ##### Ivm persistentie: hoe maken we een onderscheid tussen de tenant specifiek databronnen?
 
