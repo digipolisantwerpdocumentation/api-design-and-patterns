@@ -161,7 +161,7 @@ Ter illustratie:
 ![multitenancy_tenant_catalog](/img/multitenancy_tenant_catalog_20180313.jpg)
 
 
-##### Ivm persistentie: hoe maken we een onderscheid tussen de tenant specifiek databronnen?
+##### Ivm persistentie: hoe maken we technisch het onderscheid tussen tenant specifieke databronnen?
 
 We werken met een unieke connectie string per tenant:
 
