@@ -154,7 +154,7 @@ vb. via persitentie in een adminstratieve tabel in de tenant catalog van de comp
 
 ##### Wat is de tenant catalog?
 
-Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog heeft op zijn beurt een eigen databank(schema).
+Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich op zijn beurt in een eigen databank(schema).
 
 Ter illustratie:
 
