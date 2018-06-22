@@ -1,6 +1,6 @@
 # Session Storage
 
-![session-storage](/img/session-storage.jpg?v=4&s=200)
+![session-storage](/img/session-storage.jpg)
 
 Een Backend-For-Frontend (BFF) heeft vaak nood aan persistent storage. Dit kan handig zijn om de (front-end) sessies van de ingelogde gebruikers in op te slaan of om een cache te implementeren. Het is echter niet de bedoeling om hier andere data in te bewaren.
 
