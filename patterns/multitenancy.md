@@ -20,27 +20,21 @@ Multi-tenancy via twee hoedanigheden : providers en consumers.
 | Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
 | Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van een andere component. |
-| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor persistentie van de tenant id’s, dit geldt voor de provider of consumer kant, of beide. De persistentie gebeurd in de zogenaamde 'tenant catalog'. |
+| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor persistentie van de tenant id’s, dit geldt voor de provider of consumer kant, of beide. De persistentie gebeurt in de zogenaamde 'tenant catalog'. |
 | Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
 | Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component.
 
 
 ## Assumpties
 
-* Elke (nieuwe) (ACPaaS) component wordt verwacht rekening te houden met multi-tenancy, hetzij in de hoedanigheid van provider of als consumer. 
+* Elke (nieuwe) (ACPaaS) component wordt verwacht rekening te houden met multi-tenancy, hetzij als provider, hetzij als consumer. 
 Meer specifiek: elke toekomstige engine is multi-tenant (cfr. offerte vraag), maw elke nieuwe engine is een provider.
 
 * Er is geen centraal tenant beheersysteem.
-De provider componenten zelf zijn verantwoordelijk voor tenant beheer en persistentie. In de praktijk 1 of meerdere tenants. Elke tenant heeft  een uniek tenant id. 
+De provider componenten zijn zelf verantwoordelijk voor tenant beheer en persistentie. In de praktijk heeft men altijd 1 of meerdere tenants. Elke tenant heeft  een uniek tenant id. 
 
 * Een eindgebruiker kan in theorie 1 of meerdere hoedanigheden hebben, per toepassing of over de toepassingen heen. Dit impliceert dat een gebruiker is gekoppeld aan een applicatie, maar ook dat de rollen en rechten tenant specifiek te configureren zijn.
 
-* Bij aanvraag van rollen in de UME kan men tenants onderscheiden dmv de organisatie gedeelte op te splitsen per tenant in  het volgende patroon: “G_TPS_Organisatie_Applicatie_NaamvdRol".
- 
-  * Een fictief voorbeeld in UME met 3 verschillende tenants voor eenzelfde applicatie én eenzelfde rol:
-    1. G_TPS_Tenant1_Applicatie1_NaamvdRol1
-    2. G_TPS_Tenant2_Applicatie1_NaamvdRol1
-    3. G_TPS_Tenant3_Applicatie1_NaamvdRol1
 
 ## Multi-tenant API template
 
@@ -85,7 +79,7 @@ Componenten kunnen simultaan volgende hoedanigheden hebben:
 
 * De tenant id is een unieke identificatie van een tenant binnen een component.
 
-* Bij aanroep van een bedrijfsmethode geeft de consumer component de tenant id mee in de HTTP header.  Deze tenant id moet gekend zijn in de tenant provider die wordt aangeroepen.
+* Bij aanroep van een bedrijfsmethode geeft de consumer component de tenant id (dgp-tenant-id) mee in de HTTP header.  Deze tenant id moet gekend zijn in de tenant provider die wordt aangeroepen.
 
 * Decentraal : de unieke tenant id’s worden aangemaakt en bewaard door de provider component zelf, dus niet via een centrale entiteit. Dit kan bijvoorbeeld in een gedeelde tabel in de ‘tenant catalog’ databank van de component.
 
@@ -137,11 +131,11 @@ In het Swagger contract is deze HTTP header verplicht mee te geven, de verantwoo
 ##### Hoe wordt de tenant van een gebruiker bepaald? Eenzelfde gebruiker kan immers toegang hebben tot meerdere tenants voor eenzelfde applicatie.
 
 * Indien de applicatie meerdere tenants voorziet: het is de verantwoordelijkheid van de FE/BFF component om de keuzelijst aan te bieden tijdens de inlogprocedure.
-* De component kan op basis van de UME rollen/permissies de verschillende tenants van een geauthenticeerde gebruiker bepalen.
-* De gebruiker maakt een keuze en start feitelijk een sessie met voor één specifieke tenant.
-* De toepassing linkt de gebruiker dus aan specifieke tenant om vb. de correcte databank aan te spreken. 
+* De component kan op basis van de rollen/permissies de verschillende tenants van een geauthenticeerde gebruiker bepalen.
+* De gebruiker maakt een keuze en start feitelijk een sessie voor één specifieke tenant.
+* De toepassing linkt de gebruiker dus aan specifieke tenant om vb. de correcte datastore aan te spreken. 
 
-##### Wat met gemeenschappelijke data in de databanken?
+##### Wat met gemeenschappelijke data in de datastore?
 Vb. fysiek dupliceren of in een gemeenschappelijk schema, leggen we een restrictie op?
 
 Een component kan intern gebruik maken van een data die niet tenant specifiek is
@@ -154,7 +148,7 @@ vb. via persitentie in een adminstratieve tabel in de tenant catalog van de comp
 
 ##### Wat is de tenant catalog?
 
-Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich op zijn beurt in een eigen databank(schema).
+Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich op zijn beurt in een eigen datastore(schema).
 
 Ter illustratie:
 
