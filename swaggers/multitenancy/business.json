@@ -1,0 +1,253 @@
+{
+  "basePath": "/testtom/multitenancy/v1",
+  "paths": {
+    "/tenants/me": {
+      "get": {
+        "summary": "Get all dependent created tenants and id",
+        "x-swagger-router-controller": "Tenants",
+        "tags": [
+          "business"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "description": "Get all dependent targets and correlating tenantID",
+        "operationId": "tenantsMe",
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/DepenanciesMeArray"
+            },
+            "description": "Success list of all tenants with tenant key"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            },
+            "description": "Internal server error"
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Dgp-Tenant-Id",
+            "format": "uuid",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
+    },
+    "/business-parties": {
+      "post": {
+        "summary": "creates a business party",
+        "x-swagger-router-controller": "Business",
+        "operationId": "createParty",
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/Party"
+            },
+            "description": "Party has been created"
+          },
+          "400": {
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            },
+            "description": "Bad request"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            },
+            "description": "Internal server error"
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Dgp-Tenant-Id",
+            "format": "uuid",
+            "type": "string",
+            "required": true
+          },
+          {
+            "schema": {
+              "$ref": "#/definitions/Party"
+            },
+            "in": "body",
+            "name": "Body",
+            "required": false
+          }
+        ],
+        "tags": [
+          "business"
+        ]
+      },
+      "get": {
+        "summary": "get all the parties",
+        "x-swagger-router-controller": "Business",
+        "operationId": "getParties",
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/PartyList"
+            },
+            "description": "Business party has been added"
+          },
+          "400": {
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            },
+            "description": "Bad request"
+          },
+          "404": {
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            },
+            "description": "Not found (tenant?)"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/ErrorModel"
+            },
+            "description": "Internal server error"
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Dgp-Tenant-Id",
+            "format": "uuid",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "tags": [
+          "business"
+        ]
+      }
+    }
+  },
+  "host": "api-gw-o.antwerpen.be",
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "schemes": [
+    "https"
+  ],
+  "definitions": {
+    "Party": {
+      "type": "object",
+      "required": [
+        "email",
+        "partyName"
+      ],
+      "properties": {
+        "partyName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "partyName": "party-name",
+        "email": "party@party.com"
+      }
+    },
+    "ErrorModel": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "DepenanciesMeArray": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tenants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DependanciesMe"
+          }
+        }
+      }
+    },
+    "DependanciesMe": {
+      "required": [
+        "target",
+        "tenantid"
+      ],
+      "properties": {
+        "target": {
+          "type": "string"
+        },
+        "tenantid": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "target": "http://eventhandler.be/v0/api",
+        "tenantid": "0273889f-7e72-49a3-8cf8-45f8ebcf0831"
+      }
+    },
+    "PartyList": {
+      "type": "object",
+      "properties": {
+        "parties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Party"
+          }
+        }
+      },
+      "example": {
+        "parties": [
+          {
+            "partyName": "party-name",
+            "email": "party@party.com"
+          },
+          {
+            "partyName": "party-name",
+            "email": "party@party.com"
+          }
+        ]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "info": {
+    "contact": {
+      "email": "tom.dierckx@digipolis.be"
+    },
+    "description": "Multi-tenant demo application",
+    "title": "Multi-tenant Demo API",
+    "version": "1.0.1"
+  },
+  "tags": [
+    {
+      "name": "business",
+      "description": "Demo business endpoint. All calls with this tag are actions inside a tenant"
+    }
+  ]
+}
