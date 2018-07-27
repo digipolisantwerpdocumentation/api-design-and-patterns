@@ -10,6 +10,9 @@ Deze documentatie geeft een overzicht van de API design patterns en concepten di
 [Rate Limiting](/patterns/rate-limiting.md)  
 > Rate limiting beschermt een service tegen overload door het aantal toegelaten requests binnen een tijdspanne te limiteren.
 
+[Correlation](/patterns/correlation.md)  
+> Correlation maakt het mogelijk om een handeling (flow) over gedistibueerde systemen te traceren.
+
 [BFF Session Storage/Caching](/patterns/session-storage.md)  
 > BFF Session storage is nodig om de state van een aangemelde gebruiker bij te houden.  
 > BFF Caching kan gebruikt worden om data tijdelijk te cachen om de performantie te verbeteren.
