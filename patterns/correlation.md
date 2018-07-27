@@ -164,10 +164,10 @@ Assumpties :
 indien 1 hiervan ontbreekt, dan worden alle verplichte velden opnieuw aangemaakt door de ESB.
     *   dan worden optionele velden doorgegeven indien deze niet leeg zijn.
 
-    Er wordt ook een OM object ter beschikking gesteld met de Correlation info zodat je zelf geen decodering moet doen indien je Correlation info wil gebruiken : property=Dgp-Correlation-Header (type=OM)
+Er wordt ook een OM object ter beschikking gesteld met de Correlation info zodat je zelf geen decodering moet doen indien je Correlation info wil gebruiken : property=Dgp-Correlation-Header (type=OM)
 
 
-Vb. van het OM object : 
+Vb. van het OM object :
 
 ```xml
 <correlation>
