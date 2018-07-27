@@ -161,7 +161,7 @@ Assumpties :
 *   Als de Dgp-Correlation header niet aanwezig is, dan wordt deze gecreëerd door de ESB (met een unieke ID en als Source "ESB")
 *   Als de Dgp-Correlation header aanwezig is :
     *    dan wordt er gecontroleerd op de verplichte velden "id" ,"sourceId", "sourceName", "instanceId"en "instanceName"; <br/>
-indien 1 hiervan ontbreekt, dan worden alle required fields opnieuw aangemaakt door de ESB.
+indien 1 hiervan ontbreekt, dan worden alle verplichte velden opnieuw aangemaakt door de ESB.
     *   dan worden optionele velden doorgegeven indien deze niet leeg zijn.
 
     Er wordt ook een OM object ter beschikking gesteld met de Correlation info zodat je zelf geen decodering moet doen indien je Correlation info wil gebruiken : property=Dgp-Correlation-Header (type=OM)
