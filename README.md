@@ -16,3 +16,6 @@ Deze documentatie geeft een overzicht van de API design patterns en concepten di
 [BFF Session Storage/Caching](/patterns/session-storage.md)  
 > BFF Session storage is nodig om de state van een aangemelde gebruiker bij te houden.  
 > BFF Caching kan gebruikt worden om data tijdelijk te cachen om de performantie te verbeteren.
+
+[Multitenancy](/patterns/multitenancy.md)  
+> Multitenancy betekent dat één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data
