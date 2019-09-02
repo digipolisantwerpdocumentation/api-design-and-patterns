@@ -24,7 +24,7 @@ Meer specifiek: elke toekomstige engine is multi-tenant (cfr. offerte vraag), ma
 * Er is geen centraal tenant beheersysteem.
 De provider componenten zijn zelf verantwoordelijk voor tenant beheer en persistentie. In de praktijk heeft men altijd 1 of meerdere tenants. Elke tenant heeft  een uniek tenant id. 
 
-* Een eindgebruiker kan in theorie 1 of meerdere hoedanigheden hebben, per toepassing of over de toepassingen heen. Dit impliceert dat een gebruiker is gekoppeld aan een applicatie, maar ook dat de rollen en rechten tenant specifiek te configureren zijn.
+* Een eindgebruiker kan in de praktijk verschillende applicatieve rollen hebben per tenant. Dit impliceert hier dat een gebruiker zijn rollen en rechten tenant specifiek configureerbaar zijn én applicatief per tenant afzonderlijk worden afgehandeld.
 
 ## Terminologie
 
