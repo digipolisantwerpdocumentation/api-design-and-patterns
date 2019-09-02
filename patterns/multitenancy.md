@@ -30,7 +30,7 @@ De provider componenten zijn zelf verantwoordelijk voor tenant beheer en persist
 
 | Term | Definitie |
 | :--- | :--- |
-| Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een component is doorgedreven multi-tenant indien deze de multi-tenancy API implementeert. |
+| Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een component is doorgedreven multi-tenant indien deze de multi-tenancy API implementeert (het contract is in dit document beschreven). |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen per tenant. |
 | Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van de service(s) van een multi-tenant component. |
 | Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor administratie en persistentie van de tenant id’s, dit geldt voor zowel de provider als de consumer kant, of beide. De persistentie gebeurt in de zogenaamde 'tenant catalog'. |
