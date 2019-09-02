@@ -11,7 +11,7 @@ Dit betekent dat één instantie van de software oplossing meerdere tenants kan 
 ## Conceptueel
 
 Multi-tenancy kan op verscheidene manieren worden geïmplenteerd.
-In wat volget maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van provider en/of consumer.
+In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van provider en/of consumer.
 
 ![multitenancy_conceptueel](/img/multitenancy_conceptueel_20180313.jpg)
 
