@@ -13,6 +13,7 @@ Dit betekent dat één instantie van de software oplossing meerdere tenants kan 
 Multi-tenancy kan op verscheidene manieren worden geïmplenteerd.
 In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van provider en/of consumer.
 
+De voorgestelde oplossing vermijdt redundante componenten en is API gebaseerd:
 ![multitenancy_conceptueel](/img/multitenancy_conceptueel_20180313.jpg)
 
 ## Terminologie
