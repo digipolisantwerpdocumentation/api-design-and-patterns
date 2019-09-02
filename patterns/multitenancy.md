@@ -13,20 +13,8 @@ Dit betekent dat één instantie van de software oplossing meerdere tenants kan 
 Multi-tenancy kan op verscheidene manieren worden geïmplenteerd.
 In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van provider en/of consumer.
 
-De voorgestelde oplossing vermijdt redundante componenten en is API gebaseerd:
+De voorgestelde oplossing vermijdt redundante componenten, is decentraal en is API gebaseerd:
 ![multitenancy_conceptueel](/img/multitenancy_conceptueel_20180313.jpg)
-
-## Terminologie
-
-| Term | Definitie |
-| :--- | :--- |
-| Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
-| Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
-| Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van een andere component. |
-| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor persistentie van de tenant id’s, dit geldt voor de provider of consumer kant, of beide. De persistentie gebeurt in de zogenaamde 'tenant catalog'. |
-| Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
-| Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component.
-
 
 ## Assumpties
 
@@ -38,6 +26,16 @@ De provider componenten zijn zelf verantwoordelijk voor tenant beheer en persist
 
 * Een eindgebruiker kan in theorie 1 of meerdere hoedanigheden hebben, per toepassing of over de toepassingen heen. Dit impliceert dat een gebruiker is gekoppeld aan een applicatie, maar ook dat de rollen en rechten tenant specifiek te configureren zijn.
 
+## Terminologie
+
+| Term | Definitie |
+| :--- | :--- |
+| Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een service is multi-tenant indien deze de multi-tenancy API implementeert. |
+| Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen. |
+| Tenant-aware | Een client component is tenant-aware indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van een andere component. |
+| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor persistentie van de tenant id’s, dit geldt voor de provider of consumer kant, of beide. De persistentie gebeurt in de zogenaamde 'tenant catalog'. |
+| Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
+| Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component.
 
 ## Multi-tenant API template
 
