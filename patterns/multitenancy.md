@@ -89,7 +89,8 @@ bevat volgende methoden ifv tenant beheer:
    
 #### Wat is de tenant catalog?
 
-Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich op zijn beurt in een eigen datastore(schema).
+De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich in een eigen datastore(schema).<br/>
+Iedere tenant heeft zijn eigen databank(schema).
 
 Ter illustratie:
 
