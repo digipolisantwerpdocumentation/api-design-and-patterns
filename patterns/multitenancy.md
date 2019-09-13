@@ -86,16 +86,13 @@ bevat volgende methoden ifv tenant beheer:
 Sleutel:  dgp-tenant-id
 Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 ```
+##### Wat is de tenant catalog?
 
+Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich op zijn beurt in een eigen datastore(schema).
 
+Ter illustratie:
 
-
-#####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
-
-* De partij die de component oplevert is verantwoordelijk.
-* Een provider component implementeert de ‘Multi-tenant API’. Het tenant beheer kan als een volledig- dan wel semi-automatisch proces geimplementeerd worden.
-* Een consumer component identificeert expliciet de tenant id tijdens API calls. 
-* Documentatie voor een MTA/MTP is noodzakelijk.
+![multitenancy_tenant_catalog](/img/multitenancy_tenant_catalog_20180313.jpg)
 
 #####  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
@@ -123,15 +120,6 @@ Dit is interne keuken van de component en staat los van de Multi-tenant API.
 Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. 
 vb. via persitentie in een adminstratieve tabel in de tenant catalog van de component.
 
-##### Wat is de tenant catalog?
-
-Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich op zijn beurt in een eigen datastore(schema).
-
-Ter illustratie:
-
-![multitenancy_tenant_catalog](/img/multitenancy_tenant_catalog_20180313.jpg)
-
-
 ##### Ivm persistentie: hoe maken we technisch het onderscheid tussen tenant specifieke databronnen?
 
 We werken met een unieke connectie string per tenant:
@@ -149,3 +137,10 @@ We werken met een unieke connectie string per tenant:
 We maken GEEN gebruik van een extra kolom met daarin een (indirecte) verwijzing naar de tenant id.
 
 ![multitenancy_no_tenant_id_columns](/img/multitenancy_no_tenant_id_comlumns_20180313.jpg)
+
+#####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
+
+* De partij die de component oplevert is verantwoordelijk.
+* Een provider component implementeert de ‘Multi-tenant API’. Het tenant beheer kan als een volledig- dan wel semi-automatisch proces geimplementeerd worden.
+* Een consumer component identificeert expliciet de tenant id tijdens API calls. 
+* Documentatie voor een MTA/MTP is noodzakelijk.
