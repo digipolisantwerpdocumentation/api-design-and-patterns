@@ -17,9 +17,9 @@ De voorgestelde oplossing is:
 1. decentraal;
 2. vermijdt redundante componenten;
 3. API gebaseerd
-   * ikv identificatie : API consumers geven een `dgp-tenant-id` mee in de header zodat een tenant provider tenant specifieke logica kan afhandelen;  
-   * ikv data segregatie maken we gebruik van een tenant catolog en een databank of schema per tenant
+   * ikv identificatie : API consumers geven een `dgp-tenant-id` mee in de header zodat een tenant provider tenant specifieke logica kan afhandelen 
    * beheer : via een Multi-tenant API die specifiek tenant beheer toelaat, zie verder.
+4. data onafhankelijk : gebruik een tenant catolog en een specifieke databank per tenant (= data segregatie).
 
 
 ## Assumpties
