@@ -16,7 +16,7 @@ In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken
 De voorgestelde oplossing: 
 1. is decentraal;
 2. vermijdt redundante componenten;
-3. API gebaseerd
+3. API gebaseerd:
    * ikv identificatie : API consumers geven een `dgp-tenant-id` mee in de header zodat een tenant provider tenant specifieke logica kan afhandelen 
    * ifv beheer : via een Multi-tenant API die specifiek tenant beheer toelaat, zie verder.
 4. segregeert data: gebruik een tenant catolog en een specifieke databank per tenant.
