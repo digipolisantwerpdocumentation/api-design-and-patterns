@@ -57,7 +57,7 @@ De tenant-consumer identificeert zich dmv een via de HTTP header `dgp-tenant-id`
 | `GET /business-parties*` | Get all the parties |
 
 	
-* De [Tenant Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
+* De [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
 bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
