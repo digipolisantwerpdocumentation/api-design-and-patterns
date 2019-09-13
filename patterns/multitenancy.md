@@ -17,7 +17,7 @@ De voorgestelde oplossing is
 1. decentraal
 2. vermijdt redundante componenten
 3. API gebaseerd
-   * identificatie : API consumers geven een dgp-tenant-id mee in de header zodat een multi-tenant provider tenant specifieke logica kan afhandelen;  
+   * identificatie : API consumers geven een `dgp-tenant-id` mee in de header zodat een multi-tenant provider tenant specifieke logica kan afhandelen;  
    * beheer : via een Multi-tenant API die specifiek tenant beheer toelaat.
 
 
