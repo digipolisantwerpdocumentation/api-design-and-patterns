@@ -75,7 +75,7 @@ Componenten kunnen simultaan volgende hoedanigheden hebben:
 * hoedanigheid als consumer: client van een multi-tenant component.
 
 
-| ACPaas component | Provider rol? Aanleveren multi-tenant API? | Consumer rol? |
+| ACPaas component | Tenant-provider rol? Aanleveren multi-tenant API? | Tenant-consumer rol? |
 | :--- | :--- | :--- |
 | Engines | Ja, engine is multi-tenant by design. | Optioneel, wel indien afnemer van een ander multi-tenant component. |
 | Engine cluster | Optioneel, wenselijk. | Verplicht. |
