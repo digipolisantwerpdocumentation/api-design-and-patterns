@@ -42,7 +42,7 @@ De tenant-provider componenten zijn zelf verantwoordelijk voor tenant beheer en 
 | Tenant-provider | Een server component die 1 of meerdere tenant-consumers afhandelt, maakt typische gebruik van een tenant catalog. |
 | Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor lokale administratie en persistentie van de tenant id’s, dit geldt voor zowel de tenant-provider als de tenant-consumer kant. De persistentie gebeurt in de zogenaamde 'tenant catalog'. |
 | Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
-| Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component.
+| Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component, via een header `dgp-tenant-id`.
 
 ## Multi-tenant API template
 
@@ -52,9 +52,9 @@ De tenant-provider componenten zijn zelf verantwoordelijk voor tenant beheer en 
 
 | Method | Details |
 | :--- | :--- |
-| GET /tenants/me | Get all dependent created tenants and id |
-| POST /business-parties* | Creates a business party |
-| GET /business-parties* | Get all the parties |
+| `GET /tenants/me` | Get all dependent created tenants and id |
+| `POST /business-parties*` | Creates a business party |
+| `GET /business-parties*` | Get all the parties |
 
 	
 * De [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
@@ -62,11 +62,11 @@ bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
 | :--- | :--- |
-| POST /tenants | Creates a new tenant |
-| GET /tenants | Get all tenants |
-| GET /tenants/{tenantid} | Get tenant details |
-| DELETE /tenants/{tenantid} | Delete a tenant |
-| PUT /tenants/{tenantid} | Update the tenant details |
+| `POST /tenants` | Creates a new tenant |
+| `GET /tenants` | Get all tenants |
+| `GET /tenants/{tenantid}` | Get tenant details |
+| `DELETE /tenants/{tenantid}` | Delete a tenant |
+| `PUT /tenants/{tenantid}` | Update the tenant details |
 
 #### Hoedanigheid
 
