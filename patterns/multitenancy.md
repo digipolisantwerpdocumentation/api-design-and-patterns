@@ -10,7 +10,7 @@ Dit betekent dat één instantie van de software oplossing meerdere tenants kan 
 
 ## Conceptueel
 
-Multi-tenancy kan op verscheidene manieren worden geïmplementeerd.
+Multi-tenancy kan op verscheidene manieren worden geïmplementeerd.<br/>
 In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van tenant-provider en/of tenant-consumer.
 
 De voorgestelde oplossing: 
