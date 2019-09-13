@@ -44,9 +44,9 @@ De tenant-provider componenten zijn zelf verantwoordelijk voor tenant beheer en 
 | Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
 | Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component, via een header `dgp-tenant-id`.
 
-## Multi-tenant API template
+##  API & multi-tenancy
 
-#### Template met 2 swagger definities: Business API & Admin API
+#### 2-ledig: impact op de  Business API & een extra Tenant Admin API
 
 * De [Business API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/business.json) voorziet het opvangen van de tenant id in elke business methode*:
 
@@ -57,7 +57,7 @@ De tenant-provider componenten zijn zelf verantwoordelijk voor tenant beheer en 
 | `GET /business-parties*` | Get all the parties |
 
 	
-* De [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
+* De [Tenant Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
 bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
