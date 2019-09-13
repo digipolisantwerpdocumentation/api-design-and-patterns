@@ -40,7 +40,7 @@ De tenant-provider componenten zijn zelf verantwoordelijk voor tenant beheer en 
 | Tenant-consumer | Een client component is een tenant-consumer indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van de service(s) van een tenant-provider component. |
 | Tenant-provider | Een server component die 1 of meerdere tenant-consumers afhandelt, de component maakt typisch gebruik van een tenant catalog. |
 | Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor lokale administratie en persistentie van de tenant id’s, dit geldt voor zowel de tenant-provider als de tenant-consumer kant. De persistentie gebeurt in de zogenaamde 'tenant catalog'. |
-| Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
+| Tenant provisioning | via de Admin API, deze voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
 | Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component, via een header `dgp-tenant-id`.
 
 ##  API & multi-tenancy
