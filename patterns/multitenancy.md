@@ -82,10 +82,12 @@ bevat volgende methoden ifv tenant beheer:
 
 * Formaat: UUID met 36 tekens,  waarvan 32 hexadecimale karakters en vier streepjes: 8-4-4-4-12 (cfr. https://tools.ietf.org/html/rfc4122) 
 
-```
-Sleutel:  dgp-tenant-id
-Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
-```
+* Voorbeeld:
+   ```
+   Sleutel:  dgp-tenant-id
+   Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
+   ```
+   
 #### Wat is de tenant catalog?
 
 Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich op zijn beurt in een eigen datastore(schema).
