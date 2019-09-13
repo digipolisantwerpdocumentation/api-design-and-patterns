@@ -13,12 +13,12 @@ Dit betekent dat één instantie van de software oplossing meerdere tenants kan 
 Multi-tenancy kan op verscheidene manieren worden geïmplementeerd.
 In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van tenant provider en/of tenant consumer.
 
-De voorgestelde oplossing is 
-1. decentraal
-2. vermijdt redundante componenten
+De voorgestelde oplossing is: 
+1. decentraal;
+2. vermijdt redundante componenten;
 3. API gebaseerd
-   * identificatie : API consumers geven een `dgp-tenant-id` mee in de header zodat een multi-tenant provider tenant specifieke logica kan afhandelen;  
-   * beheer : via een Multi-tenant API die specifiek tenant beheer toelaat.
+   * ikv identificatie : API consumers geven een `dgp-tenant-id` mee in de header zodat een tenant provider tenant specifieke logica kan afhandelen;  
+   * beheer : via een Multi-tenant API die specifiek tenant beheer toelaat, zie verder.
 
 
 ## Assumpties
