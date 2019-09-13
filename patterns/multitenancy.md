@@ -3,9 +3,9 @@
 
 ## Context
 
-Fragment uit de offerte-vraag document wat betreft het bouwen van een engine:
-`Een engine is multi-tenant by design. 
-Dit betekent dat één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data.`
+Fragment uit de offerte-vraag document wat betreft het bouwen van een engine:<br/>
+Een engine is multi-tenant by design. 
+Dit betekent dat één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data.
 
 
 ## Conceptueel
