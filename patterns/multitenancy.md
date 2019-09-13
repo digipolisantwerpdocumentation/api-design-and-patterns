@@ -24,8 +24,7 @@ De voorgestelde oplossing:
 
 ## Assumpties
 
-* Elke (nieuwe) (ACPaaS) component wordt verwacht rekening te houden met multi-tenancy, hetzij als tenant-provider, hetzij als tenant-consumer. 
-Meer specifiek: elke toekomstige engine is multi-tenant (cfr. offerte vraag), maw elke nieuwe engine is een tenant-provider.
+* Elke (nieuwe) (ACPaaS) component wordt verwacht rekening te houden met multi-tenancy, hetzij als tenant-provider, hetzij als tenant-consumer. Een engine is typisch een tenant-provider. 
 
 * Er is geen centraal tenant beheersysteem.
 De tenant-provider componenten zijn zelf verantwoordelijk voor tenant beheer en persistentie. In de praktijk heeft men altijd 1 of meerdere tenants. Elke tenant heeft  een uniek tenant id. 
