@@ -14,15 +14,12 @@ Multi-tenancy kan op verscheidene manieren worden geïmplenteerd.
 In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van provider en/of consumer.
 
 De voorgestelde oplossing is 
-- decentraal
-- vermijdt redundante componenten
-- is API gebaseerd
-	-- API consumers geven een dgp-tenant-id mee in de header zodat een multi-tenant provider tenant specifieke logica kan afhandelen.
-	-- we voorzien een Multi-tenant API die tenant beheer toelaat.
+1. decentraal
+2. vermijdt redundante componenten
+3. is API gebaseerd
+   * identificatie : API consumers geven een dgp-tenant-id mee in de header zodat een multi-tenant provider tenant specifieke logica kan afhandelen;  
+   * beheer : via een Multi-tenant API die specifiek tenant beheer toelaat.
 
-
-
-![multitenancy_conceptueel](/img/multitenancy_conceptueel_20180313.jpg)
 
 ## Assumpties
 
