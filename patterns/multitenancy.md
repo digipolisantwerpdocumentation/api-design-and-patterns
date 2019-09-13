@@ -11,24 +11,24 @@ Dit betekent dat één instantie van de software oplossing meerdere tenants kan 
 ## Conceptueel
 
 Multi-tenancy kan op verscheidene manieren worden geïmplementeerd.
-In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van tenant provider en/of tenant consumer.
+In wat volgt maken we een onderscheid tussen tussen de (dubbel)rol die betrokken componenten kunnen spelen : die van tenant-provider en/of tenant-consumer.
 
 De voorgestelde oplossing: 
 1. is decentraal;
 2. vermijdt redundante componenten;
 3. API gebaseerd:
-   * ikv identificatie : API consumers geven een `dgp-tenant-id` mee in de header zodat een tenant provider tenant specifieke logica kan afhandelen 
+   * ikv identificatie : API consumers geven een `dgp-tenant-id` mee in de header zodat een tenant-provider specifieke logica kan afhandelen 
    * ifv beheer : via een Multi-tenant API die specifiek tenant beheer toelaat, zie verder.
 4. segregeert data: gebruik een tenant catolog en een specifieke databank per tenant.
 
 
 ## Assumpties
 
-* Elke (nieuwe) (ACPaaS) component wordt verwacht rekening te houden met multi-tenancy, hetzij als provider, hetzij als consumer. 
-Meer specifiek: elke toekomstige engine is multi-tenant (cfr. offerte vraag), maw elke nieuwe engine is een provider.
+* Elke (nieuwe) (ACPaaS) component wordt verwacht rekening te houden met multi-tenancy, hetzij als tenant-provider, hetzij als tenant-consumer. 
+Meer specifiek: elke toekomstige engine is multi-tenant (cfr. offerte vraag), maw elke nieuwe engine is een tenant-provider.
 
 * Er is geen centraal tenant beheersysteem.
-De provider componenten zijn zelf verantwoordelijk voor tenant beheer en persistentie. In de praktijk heeft men altijd 1 of meerdere tenants. Elke tenant heeft  een uniek tenant id. 
+De tenant-provider componenten zijn zelf verantwoordelijk voor tenant beheer en persistentie. In de praktijk heeft men altijd 1 of meerdere tenants. Elke tenant heeft  een uniek tenant id. 
 
 * Een eindgebruiker kan in de praktijk verschillende applicatieve rollen hebben per tenant. Dit impliceert hier dat een gebruiker zijn rollen en rechten tenant specifiek configureerbaar zijn én applicatief per tenant afzonderlijk worden afgehandeld.
 
@@ -38,9 +38,9 @@ De provider componenten zijn zelf verantwoordelijk voor tenant beheer en persist
 | :--- | :--- |
 | Multi-tenant | Een component is multi-tenant indien één instantie van de software oplossing meerdere tenants kan voorzien. Elke tenant is een afzonderlijk gescheiden logische omgeving, elk met zijn eigen set gebruikers, autorisatie regels en data. Een component is doorgedreven multi-tenant indien deze de multi-tenancy API implementeert (het contract is in dit document beschreven). |
 | Multi-instance| Een uitbreiding van een multi-tenant component (zie boven) waarbij men gebruik maakt van afzonderlijk gescheiden processen per tenant. |
-| Tenant-consumer | Een client component is een tenant-consumer indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van de service(s) van een multi-tenant component. |
+| Tenant-consumer | Een client component is een tenant-consumer indien deze expliciet een ‘tenant id’ gebruikt bij het consumeren van de service(s) van een tenant-provider component. |
 | Tenant-provider | Een server component die 1 of meerdere tenant-consumers afhandelt, maakt typische gebruik van een tenant catalog. |
-| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor administratie en persistentie van de tenant id’s, dit geldt voor zowel de provider als de consumer kant, of beide. De persistentie gebeurt in de zogenaamde 'tenant catalog'. |
+| Tenant catalog | Een component draagt zelf de verantwoordelijkheid voor lokale administratie en persistentie van de tenant id’s, dit geldt voor zowel de tenant-provider als de tenant-consumer kant. De persistentie gebeurt in de zogenaamde 'tenant catalog'. |
 | Tenant provisioning | De Multi-tenant API voorziet beheer methoden om nieuwe tenant id’s en mapping te provisioneren. | 
 | Tenant id | Dit is de unieke identificatie van een tenant binnen een bepaalde component.
 
