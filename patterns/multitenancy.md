@@ -86,7 +86,7 @@ bevat volgende methoden ifv tenant beheer:
 Sleutel:  dgp-tenant-id
 Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 ```
-##### Wat is de tenant catalog?
+#### Wat is de tenant catalog?
 
 Iedere tenant heeft zijn eigen databank(schema). De tenant catalog bevat data nodig voor het tenant beheer van de component. De tenant catalog bevindt zich op zijn beurt in een eigen datastore(schema).
 
@@ -94,33 +94,33 @@ Ter illustratie:
 
 ![multitenancy_tenant_catalog](/img/multitenancy_tenant_catalog_20180313.jpg)
 
-#####  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
+####  Hoe implementeer ik de Multi-tenant API in een ACPaas provider component?
 
 Zie de paragraaf hierboven: API & multi-tenancy. 
     
-##### Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
+#### Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
 
 In het Swagger contract is deze HTTP header verplicht mee te geven, de verantwoordelijkheid ligt bij de consumer component, deze dient de correcte tenant-id mee te geven.
 
-##### Hoe wordt de tenant van een gebruiker bepaald? Eenzelfde gebruiker kan immers toegang hebben tot meerdere tenants voor eenzelfde applicatie.
+#### Hoe wordt de tenant van een gebruiker bepaald? Eenzelfde gebruiker kan immers toegang hebben tot meerdere tenants voor eenzelfde applicatie.
 
 * Indien de applicatie meerdere tenants voorziet: het is de verantwoordelijkheid van de FE/BFF component om de keuzelijst aan te bieden tijdens de inlogprocedure.
 * De component kan vb. op basis van de rollen/permissies de verschillende tenants van een geauthenticeerde gebruiker bepalen.
 * De gebruiker maakt een keuze en start feitelijk een sessie voor één specifieke tenant.
 * De toepassing linkt de gebruiker dus aan specifieke tenant om vb. de correcte datastore aan te spreken. 
 
-##### Wat met gemeenschappelijke data in de datastore?
+#### Wat met gemeenschappelijke data in de datastore?
 Vb. fysiek dupliceren of in een gemeenschappelijk schema, leggen we een restrictie op?
 
 Een component kan intern gebruik maken van een data die niet tenant specifiek is
 Dit is interne keuken van de component en staat los van de Multi-tenant API.
 
-##### Is er een centrale infrastructuur component die de tenant id’s beheert?
+#### Is er een centrale infrastructuur component die de tenant id’s beheert?
 
 Neen, de unieke tenant id’s worden bewaard door de provider component zelf, niet centraal. 
 vb. via persitentie in een adminstratieve tabel in de tenant catalog van de component.
 
-##### Ivm persistentie: hoe maken we technisch het onderscheid tussen tenant specifieke databronnen?
+#### Ivm persistentie: hoe maken we technisch het onderscheid tussen tenant specifieke databronnen?
 
 We werken met een unieke connectie string per tenant:
 
@@ -132,13 +132,13 @@ We werken met een unieke connectie string per tenant:
   - PostgreSQL: per instantie een specifieke connectie string
   - MongoDB: per instantie een specifieke connectie string
 
-##### Mag de tenant id als extra kolom gepersisteerd worden?
+#### Mag de tenant id als extra kolom gepersisteerd worden?
 
 We maken GEEN gebruik van een extra kolom met daarin een (indirecte) verwijzing naar de tenant id.
 
 ![multitenancy_no_tenant_id_columns](/img/multitenancy_no_tenant_id_comlumns_20180313.jpg)
 
-#####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
+####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
 
 * De partij die de component oplevert is verantwoordelijk.
 * Een provider component implementeert de ‘Multi-tenant API’. Het tenant beheer kan als een volledig- dan wel semi-automatisch proces geimplementeerd worden.
