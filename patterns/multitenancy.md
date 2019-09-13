@@ -117,9 +117,9 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 
 | Method | Details |
 | :--- | :--- |
-| GET /tenants/me | Get all dependent created tenants and id |
-| POST /business-parties* | Creates a business party |
-| GET /business-parties* | Get all the parties |
+| `GET /tenants/me` | Get all dependent created tenants and id |
+| `POST /business-parties*` | Creates a business party |
+| `GET /business-parties*` | Get all the parties |
 
 	
 * De [Admin API](https://editor.swagger.io/?url=https://raw.githubusercontent.com/digipolisantwerpdocumentation/api-design-and-patterns/multitenancy/swaggers/multitenancy/admin.json) 
@@ -127,11 +127,11 @@ bevat volgende methoden ifv tenant beheer:
 
 | Method | Details |
 | :--- | :--- |
-| POST /tenants | Creates a new tenant |
-| GET /tenants | Get all tenants |
-| GET /tenants/{tenantid} | Get tenant details |
-| DELETE /tenants/{tenantid} | Delete a tenant |
-| PUT /tenants/{tenantid} | Update the tenant details |
+| `POST /tenants` | Creates a new tenant |
+| `GET /tenants` | Get all tenants |
+| `GET /tenants/{tenantid}` | Get tenant details |
+| `DELETE /tenants/{tenantid}` | Delete a tenant |
+| `PUT /tenants/{tenantid}` | Update the tenant details |
     
 ##### Wat als een consumer van een business service geen expliciete dgp-tenant-id meegeeft?
 
@@ -169,7 +169,7 @@ Ter illustratie:
 We werken met een unieke connectie string per tenant:
 
 * Eén instantie:
-  - PostgreSQL: jdbc:postgresql://localhost:5432/mydatabase?currentSchema=myschema
+  - PostgreSQL: `jdbc:postgresql://localhost:5432/mydatabase?currentSchema=myschema`
   - MongoDB: cfr. https://docs.mongodb.com/manual/reference/connection-string/mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
 * Meerdere instanties:
