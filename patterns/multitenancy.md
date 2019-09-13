@@ -82,10 +82,11 @@ Componenten kunnen simultaan volgende hoedanigheden hebben:
 | Business services  | Optioneel, wenselijk. | Verplicht. |
 | FE & BFF | Nvt. | Verplicht. |
 
+## FAQ
 
-#### Tenant id
+#### Wat is een tenant id?
 
-* De tenant id is dus een unieke identificatie van een tenant binnen een component.
+* De tenant id is een unieke identificatie van een tenant binnen een component.
 
 * Bij aanroep van een bedrijfsmethode geeft de consumer component de HTTP header 'dgp-tenant-id' mee.  Deze tenant id moet gekend zijn in de tenant provider die wordt aangeroepen.
 
@@ -101,7 +102,7 @@ Waarde: 198b64a5-9a48-4887-9b18-78344946dcc2
 ```
 
 
-## FAQ
+
 
 #####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
 
