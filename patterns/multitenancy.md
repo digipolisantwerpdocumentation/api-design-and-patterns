@@ -138,7 +138,7 @@ In het Swagger contract is deze HTTP header verplicht mee te geven, de verantwoo
 ##### Hoe wordt de tenant van een gebruiker bepaald? Eenzelfde gebruiker kan immers toegang hebben tot meerdere tenants voor eenzelfde applicatie.
 
 * Indien de applicatie meerdere tenants voorziet: het is de verantwoordelijkheid van de FE/BFF component om de keuzelijst aan te bieden tijdens de inlogprocedure.
-* De component kan op basis van de rollen/permissies de verschillende tenants van een geauthenticeerde gebruiker bepalen.
+* De component kan vb. op basis van de rollen/permissies de verschillende tenants van een geauthenticeerde gebruiker bepalen.
 * De gebruiker maakt een keuze en start feitelijk een sessie voor één specifieke tenant.
 * De toepassing linkt de gebruiker dus aan specifieke tenant om vb. de correcte datastore aan te spreken. 
 
