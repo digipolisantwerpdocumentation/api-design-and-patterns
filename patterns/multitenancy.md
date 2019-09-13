@@ -83,9 +83,9 @@ Componenten kunnen simultaan volgende hoedanigheden hebben:
 
 #### Tenant id
 
-* De tenant id is een unieke identificatie van een tenant binnen een component.
+* De tenant id is dus een unieke identificatie van een tenant binnen een component.
 
-* Bij aanroep van een bedrijfsmethode geeft de consumer component de tenant id (dgp-tenant-id) mee in de HTTP header.  Deze tenant id moet gekend zijn in de tenant provider die wordt aangeroepen.
+* Bij aanroep van een bedrijfsmethode geeft de consumer component de HTTP header 'dgp-tenant-id' mee.  Deze tenant id moet gekend zijn in de tenant provider die wordt aangeroepen.
 
 * Decentraal : de unieke tenant id’s worden aangemaakt en bewaard door de provider component zelf, dus niet via een centrale entiteit. Dit kan bijvoorbeeld in een gedeelde tabel in de ‘tenant catalog’ databank van de component.
 
