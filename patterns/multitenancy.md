@@ -43,10 +43,3 @@ We werken met een unieke connectie string per tenant:
 We maken GEEN gebruik van een extra kolom met daarin een (indirecte) verwijzing naar de tenant id.
 
 ![multitenancy_no_tenant_id_columns](/img/multitenancy_no_tenant_id_comlumns_20180313.jpg)
-
-####  Eigenaarschap: wie of welke component neemt het toevoegen/wijzigen/verwijderen van tenants op zich?
-
-* De partij die de component oplevert is verantwoordelijk.
-* Een provider component implementeert de ‘Multi-tenant API’. Het tenant beheer kan als een volledig- dan wel semi-automatisch proces geimplementeerd worden.
-* Een consumer component identificeert expliciet de tenant id tijdens API calls. 
-* Documentatie voor een MTA/MTP is noodzakelijk.
