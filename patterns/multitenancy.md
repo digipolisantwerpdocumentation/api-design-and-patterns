@@ -1,3 +1,7 @@
+# Multi-tenancy API v1
+## Context & Richtlijnen
+Een toelichting over Multi-tenancy, de belangrijkste begrippen en ACPaaS Richtlijnen zijn terug te vinden op het [ACPaaS portaal](https://acpaas.digipolis.be/nl/docs/multitenancy-requirements).  
+
 ##  API & multi-tenancy
 
 #### 2-ledig: impact op de  Business API & een extra Tenant Admin API
